@@ -289,7 +289,12 @@ build_rprompt() {
   RETVAL=$?
   CURRENT_BG=green
   prompt_rend
-  AWS_LOGIN=$(awsume_prompt_info)
+  if command -v awsume_prompt_info &> /dev/null
+  then
+    AWS_LOGIN=$(awsume_prompt_info)
+  else
+    AWS_LOGIN=""
+  fi
   if [ ! -z "$AWS_LOGIN" ]; then
     prompt_rsegment green $CURRENT_FG "aws: $AWS_LOGIN"
   else
