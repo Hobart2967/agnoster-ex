@@ -302,6 +302,9 @@ build_rprompt() {
   fi
 
   prompt_rsegment red white "Node $(node -v)"
+
+  DATE=$(date +%H:%M:%S);
+  prompt_rsegment yellow $CURRENT_FG "$DATE"
 }
 
 RPROMPT='%{%f%b%k%}$(build_rprompt) '
