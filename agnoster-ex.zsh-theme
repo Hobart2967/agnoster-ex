@@ -301,7 +301,13 @@ build_rprompt() {
     prompt_rsegment green $CURRENT_FG "No aws session"
   fi
 
-  prompt_rsegment red white "Node $(node -v)"
+  if command -v node &> /dev/null
+  then
+    prompt_rsegment red white "Node $(node -v)"
+  else
+    prompt_rsegment green $CURRENT_FG "No node.js"
+  fi
+
 
   DATE=$(date +%H:%M:%S);
   prompt_rsegment yellow $CURRENT_FG "$DATE"
