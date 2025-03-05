@@ -305,7 +305,7 @@ build_rprompt() {
   then
     prompt_rsegment red white "Node $(node -v)"
   else
-    prompt_rsegment green $CURRENT_FG "No node.js"
+    prompt_rsegment red white "No node.js"
   fi
 
 
